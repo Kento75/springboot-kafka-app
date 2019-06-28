@@ -19,7 +19,7 @@ $ cd ./<Kafkaディレクトリ>
 $ ./bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 
-### Apache kafka の起動
+### Apache Kafka の起動
 
 Zookeeper はそのままで、別端末を開く。
 
@@ -30,3 +30,24 @@ $ cd ./<Kafkaディレクトリ>
 # Kafkaの起動
 $ ./bin/kafka-server-start.sh config/server.properties
 ```
+
+
+
+## kafka_prod_consの使用例
+
+ZookeeperとKafkaの起動、SpringBootAppの起動後に以下のプロセスを立ち上げる。
+
+```
+# コンシューマーの起動
+$ <Kafkaをダウンロードしたディレクトリ>/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic myTopic
+```
+
+
+
+プロセス立ち上げ後、Postmanで以下の送信を実行
+
+| リクエスト種別 | POST                                          |
+| -------------- | --------------------------------------------- |
+| URL            | http://localhost:8080/api/kafka               |
+| Request Body   | { "field1" : "field1",  "field2" : "field2" } |
+
