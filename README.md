@@ -43,12 +43,14 @@ $ <Kafkaをダウンロードしたディレクトリ>/bin/kafka-console-consume
 プロセス立ち上げ後、Postman で以下の送信を実行
 
 API1
+
 | リクエスト種別 | POST |
 | -------------- | --------------------------------------------- |
 | URL | http://localhost:8080/api/kafka |
 | Request Body | { "field1" : "field1", "field2" : "field2" } |
 
 API2
+
 | リクエスト種別 | POST |
 | -------------- | ------------------------------------------------------------- |
 | URL | http://localhost:8080/api/kafka/v2 |
