@@ -31,23 +31,25 @@ $ cd ./<Kafkaディレクトリ>
 $ ./bin/kafka-server-start.sh config/server.properties
 ```
 
+## kafka_prod_cons の使用例
 
-
-## kafka_prod_consの使用例
-
-ZookeeperとKafkaの起動、SpringBootAppの起動後に以下のプロセスを立ち上げる。
+Zookeeper と Kafka の起動、SpringBootApp の起動後に以下のプロセスを立ち上げる。
 
 ```
 # コンシューマーの起動
 $ <Kafkaをダウンロードしたディレクトリ>/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic myTopic
 ```
 
+プロセス立ち上げ後、Postman で以下の送信を実行
 
-
-プロセス立ち上げ後、Postmanで以下の送信を実行
-
-| リクエスト種別 | POST                                          |
+API1
+| リクエスト種別 | POST |
 | -------------- | --------------------------------------------- |
-| URL            | http://localhost:8080/api/kafka               |
-| Request Body   | { "field1" : "field1",  "field2" : "field2" } |
+| URL | http://localhost:8080/api/kafka |
+| Request Body | { "field1" : "field1", "field2" : "field2" } |
 
+API2
+| リクエスト種別 | POST |
+| -------------- | ------------------------------------------------------------- |
+| URL | http://localhost:8080/api/kafka/v2 |
+| Request Body | { "title" : "new title", "description" : "new description" } |
